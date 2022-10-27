@@ -1,0 +1,321 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "title": "Datasets",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "PD0067CAD9A63E081"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.2.1",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "name",
+              "text": "Dataset",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "PD0067CAD9A63E081"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "simple",
+          "refId": "A",
+          "root_selector": "data.__type.fields",
+          "source": "url",
+          "type": "graphql",
+          "uql": "parse-json\n| project \"data\"\nparse-json\n| project \"__type\"\nparse-json\n| project \"fields\"",
+          "url": "$base_url",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_graphql_query": "query introspectionQuery {\n  __type(name: \"Query\") {\n    name\n    fields {\n        name\n       }\n   }\n}",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Available Datasets",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "PD0067CAD9A63E081"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 10,
+        "x": 5,
+        "y": 1
+      },
+      "id": 10,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.2.1",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "PD0067CAD9A63E081"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "uql",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "graphql",
+          "uql": "parse-json\n| jsonata \"data.__type.fields[name='$dataset'].type.ofType.fields\"\nparse-json\n| extend \"Type\"=\"type.name\"\n| project \"Dataset\"=\"name\", \"Type\"",
+          "url": "$base_url",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_graphql_query": "query introspectionQuery {\n  __type(name: \"Query\") {\n    name\n    fields {\n        name\n        type {\n            ofType {\n                fields {\n                    name\n                    type {\n                        name\n                       }\n                   }\n               }\n           }\n       }\n   }\n}",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Fields and types from datataset: $dataset",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "fifemon-graphql-datasource",
+        "uid": "PF24A783CC2DEA5DA"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "|Variable|Value|\n---------|------\n|**base_url:**|`${base_url}`|\n|**dataset**|`${dataset}`|",
+        "mode": "markdown"
+      },
+      "pluginVersion": "9.2.1",
+      "title": "Debug Dashboard Variables",
+      "type": "text"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "http://api.azionapi.net/metrics/graphql",
+          "value": "http://api.azionapi.net/metrics/graphql"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "URL",
+        "multi": false,
+        "name": "base_url",
+        "options": [
+          {
+            "selected": false,
+            "text": "https://api.azionapi.net/metrics/graphql",
+            "value": "https://api.azionapi.net/metrics/graphql"
+          }
+        ],
+        "query": "https://api.azionapi.net/metrics/graphql",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "dataStreamedMetrics",
+          "value": "dataStreamedMetrics"
+        },
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "PD0067CAD9A63E081"
+        },
+        "definition": "Infinity- (infinity) graphql",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Select a Dataset",
+        "multi": false,
+        "name": "dataset",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "refId": "variable",
+            "root_selector": "data.__type.fields",
+            "source": "url",
+            "type": "graphql",
+            "url": "$base_url",
+            "url_options": {
+              "body_content_type": "application/json",
+              "body_graphql_query": "query introspectionQuery {\n  __type(name: \"Query\") {\n    name\n    fields {\n        name\n       }\n   }\n}",
+              "body_type": "graphql",
+              "data": "",
+              "method": "POST",
+              "params": []
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false
+  },
+  "timezone": "",
+  "title": "Datasets, Fields and Types",
+  "uid": "VCKAd3VVk",
+  "version": 2,
+  "weekStart": ""
+}
