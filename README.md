@@ -23,7 +23,7 @@ $ docker-compose up -d
 
 That's it, now enjoy the samples. Feel free to drop us an issue if your need help.
 
-## Screenchots
+## Screenshots
 ![Http Metrics](screenshots/http_metrics.png)
 
 ## Additional material
