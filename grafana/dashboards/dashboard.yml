@@ -6,9 +6,9 @@ providers:
     allowUiUpdates: true
     options:
       path: /etc/grafana/provisioning/dashboards/datasets
-  - name: 'L2 Cache Examples'
+  - name: 'Http Metrics Examples'
     folder: 'Data Platform'
     allowUiUpdates: true
     options:
-      path: /etc/grafana/provisioning/dashboards/l2Cache
+      path: /etc/grafana/provisioning/dashboards/HttpMetrics
 

@@ -33,7 +33,7 @@
         "uid": "grafana"
       },
       "gridPos": {
-        "h": 5,
+        "h": 7,
         "w": 24,
         "x": 0,
         "y": 0
@@ -45,11 +45,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "# Azion Metrics GraphQL Grafana Samples\n## Need help?\nGraphQL API Documentation:    \nAzion Documentation: https://www.azion.com/en/documentation",
+        "content": "# Azion Metrics GraphQL Grafana Samples\n## Need help?\nGraphQL API Documentation: https://www.azion.com/en/documentation/products/graphql-api  \nAzion Documentation: https://www.azion.com/en/documentation  \n\n## No Data?\nCheck if your company has the related product of the information you are searching for.  \nhttps://www.azion.com/en/documentation/products",
         "mode": "markdown"
       },
-      "pluginVersion": "9.2.0",
-      "title": "Welcome",
+      "pluginVersion": "9.2.3",
       "type": "text"
     },
     {
@@ -61,7 +60,7 @@
         "h": 14,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 7
       },
       "id": 3,
       "links": [],
@@ -75,7 +74,7 @@
         "showStarred": false,
         "tags": []
       },
-      "pluginVersion": "9.2.0",
+      "pluginVersion": "9.2.3",
       "tags": [],
       "targets": [
         {

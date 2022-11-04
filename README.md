@@ -23,6 +23,9 @@ $ docker-compose up -d
 
 That's it, now enjoy the samples. Feel free to drop us an issue if your need help.
 
+## Screenchots
+![Http Metrics](screenshots/http_metrics.png)
+
 ## Additional material
 - There is a [Insomnia](https://insomnia.rest/download) document within this project called `Insomnia.json`. 
 If you prefer to learn APIs through a spec-first perspective this will help you.
@@ -30,5 +33,5 @@ If you prefer to learn APIs through a spec-first perspective this will help you.
 	- Install the [insomnia-plugin-customtimestamp](https://github.com/Gabb1995/insomnia-plugin-customtimestamp) plugin.
 - [Azion Documentation](https://www.azion.com/en/documentation)
 - [Personal Token Documentation](https://www.azion.com/en/documentation/products/accounts/personal-tokens)
-- [Metrics GraphQL API Documentation]()
+- [Metrics GraphQL API Documentation](https://www.azion.com/en/documentation/products/graphql-api)
 
